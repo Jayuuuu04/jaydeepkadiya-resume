@@ -6,3 +6,5 @@ out
 *.log
 package-lock.json
 !.env.example
+.env.local
+
