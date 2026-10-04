@@ -16,6 +16,7 @@ export const projects = [
     url: 'https://x-pense.cloud/',
     badge: 'Live Product',
     category: 'SaaS · Travel & Expense',
+    image: '/images/projects/xpense.png',
     accent: 'cyan',
   },
   {

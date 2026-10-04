@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
 import { motion, useReducedMotion, useScroll, useTransform, type MotionValue } from 'framer-motion';
 import { ArrowUpRight, Check, Globe, Lock } from 'lucide-react';
 import { projects } from '../../data/projects';
@@ -87,7 +88,25 @@ function ProjectPreview({ project, accent }: { project: Project; accent: (typeof
         </div>
       </div>
 
-      {/* body */}
+      {project.image ? (
+        // Real screenshot: pans from the top of the page to the bottom on hover.
+        <div className="relative flex-1 overflow-hidden bg-white">
+          <Image
+            src={project.image}
+            alt={`${name} landing page`}
+            fill
+            sizes="(min-width: 1024px) 560px, 100vw"
+            className="object-cover object-top transition-[object-position] duration-[6s] ease-in-out group-hover:object-bottom"
+          />
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-slate-950/70 to-transparent" />
+          <div className={`absolute bottom-4 left-4 border-l-2 bg-slate-950/85 px-2.5 py-1 font-mono text-[11px] text-slate-200 ${accent.caption}`}>
+            {isLive ? `Live · ${host}` : 'In development'}
+          </div>
+          <div className="absolute bottom-4 right-4 rounded bg-slate-950/85 px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider text-slate-400 transition-opacity duration-300 group-hover:opacity-0">
+            Hover to scroll
+          </div>
+        </div>
+      ) : (
       <div className="relative flex-1">
         {/* grid pattern that drifts on hover */}
         <div
@@ -135,6 +154,7 @@ function ProjectPreview({ project, accent }: { project: Project; accent: (typeof
           {isLive ? `Live · ${host}` : 'In development'}
         </div>
       </div>
+      )}
     </div>
   );
 }
