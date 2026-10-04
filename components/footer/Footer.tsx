@@ -19,7 +19,7 @@ const GitHubSvg = () => (
 
 const socials = [
   { icon: GitHubSvg, href: 'https://github.com/Jayuuuu04', label: 'GitHub' },
-  { icon: LinkedInSvg, href: 'https://linkedin.com/in/jaydeepkadiya005', label: 'LinkedIn' },
+  { icon: LinkedInSvg, href: 'https://www.linkedin.com/in/jaydeepkadiya005', label: 'LinkedIn' },
   { icon: Mail, href: 'mailto:jaydeepkadiya005@gmail.com', label: 'Email' },
   { icon: WhatsAppIcon, href: whatsappUrl(), label: 'WhatsApp' },
 ];
