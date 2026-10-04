@@ -148,8 +148,7 @@ export function Hero() {
             </Link>
             <a
               href="/resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
+              download="Jaydeep-Kadiya-Resume.pdf"
               className="inline-flex items-center gap-2 rounded-full border border-slate-700/70 px-5 py-3 text-sm font-medium text-slate-400 transition hover:border-slate-500 hover:text-slate-200"
             >
               <Download className="h-4 w-4" /> Resume

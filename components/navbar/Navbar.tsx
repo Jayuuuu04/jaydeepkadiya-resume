@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { motion, useScroll, useSpring } from 'framer-motion';
 import { ThemeToggle } from '../theme/ThemeToggle';
-import { Menu, X } from 'lucide-react';
+import { Download, Menu, X } from 'lucide-react';
 
 const GitHubSvg = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
@@ -77,6 +77,13 @@ export function Navbar() {
           <Link href="https://www.linkedin.com/in/jaydeepkadiya" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hidden items-center justify-center rounded-full border border-slate-700/70 bg-slate-900/70 p-2.5 text-slate-300 transition hover:border-cyan-300/70 hover:text-cyan-200 md:inline-flex">
             <LinkedInSvg />
           </Link>
+          <a
+            href="/resume.pdf"
+            download="Jaydeep-Kadiya-Resume.pdf"
+            className="hidden items-center gap-2 rounded-full bg-cyan-400 px-4 py-2 text-sm font-semibold text-slate-950 shadow-lg shadow-cyan-400/20 transition hover:bg-cyan-300 sm:inline-flex"
+          >
+            <Download className="h-4 w-4" /> Resume
+          </a>
           <ThemeToggle />
           <button
             type="button"
@@ -107,6 +114,14 @@ export function Navbar() {
                 {item.label}
               </Link>
             ))}
+            <a
+              href="/resume.pdf"
+              download="Jaydeep-Kadiya-Resume.pdf"
+              className="flex items-center justify-center gap-2 rounded-2xl bg-cyan-400 px-4 py-3 text-base font-semibold text-slate-950 transition hover:bg-cyan-300"
+              onClick={() => setOpen(false)}
+            >
+              <Download className="h-4 w-4" /> Download Resume
+            </a>
           </div>
         </div>
       )}
