@@ -90,12 +90,16 @@ function ProjectPreview({ project, accent }: { project: Project; accent: (typeof
 
       {project.image ? (
         // Real screenshot: pans from the top of the page to the bottom on hover.
-        <div className="relative flex-1 overflow-hidden bg-white">
+        <div className="relative flex-1 overflow-hidden bg-slate-900">
+          {/* Screenshots are pre-compressed WebP, so serve them as-is from the CDN
+              and fetch on page load rather than waiting for the card to scroll in. */}
           <Image
             src={project.image}
             alt={`${name} landing page`}
             fill
-            sizes="(min-width: 1024px) 560px, 100vw"
+            unoptimized
+            loading="eager"
+            placeholder="blur"
             className="object-cover object-top transition-[object-position] duration-[6s] ease-in-out group-hover:object-bottom"
           />
           <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-slate-950/70 to-transparent" />

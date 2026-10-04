@@ -1,3 +1,6 @@
+import xpenseShot from '../public/images/projects/xpense.webp';
+import foodioShot from '../public/images/projects/foodio.webp';
+
 export const projects = [
   {
     title: 'Xpense — Enterprise Travel Management SaaS',
@@ -16,7 +19,7 @@ export const projects = [
     url: 'https://x-pense.cloud/',
     badge: 'Live Product',
     category: 'SaaS · Travel & Expense',
-    image: '/images/projects/xpense.png',
+    image: xpenseShot,
     accent: 'cyan',
   },
   {
@@ -33,9 +36,10 @@ export const projects = [
       'Shiprocket API integration for automated shipping, tracking, and logistics',
     ],
     tags: ['Node.js', 'Next.js', 'MySQL', 'Razorpay', 'Shiprocket API', 'REST API', 'E-Commerce'],
-    url: '#',
+    url: 'https://foodio-user-panel.vercel.app/',
     badge: 'In Progress',
     category: 'E-Commerce · FMCG',
+    image: foodioShot,
     accent: 'violet',
   },
 
