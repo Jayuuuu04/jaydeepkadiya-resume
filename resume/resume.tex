@@ -1,0 +1,188 @@
+%-------------------------
+% Resume in LaTeX — Jaydeep Kadiya
+% Based on "Jake's Resume" Overleaf template (Jake Gutierrez, MIT license)
+% Compile on Overleaf with pdfLaTeX, or locally with: tectonic resume.tex
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{iftex}
+
+% Make the PDF machine readable / ATS parsable (pdfLaTeX only)
+\ifPDFTeX
+  \input{glyphtounicode}
+  \pdfgentounicode=1
+\fi
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    \textbf{\Huge \scshape Jaydeep Kadiya} \\ \vspace{1pt}
+    \small Backend Developer $|$ Bhuj, Gujarat, India $|$
+    \href{https://jaydeepkadiya.vercel.app}{\underline{jaydeepkadiya.vercel.app}} \\ \vspace{1pt}
+    \small +91 77779 57606 $|$
+    \href{mailto:jaydeepkadiya005@gmail.com}{\underline{jaydeepkadiya005@gmail.com}} $|$
+    \href{https://www.linkedin.com/in/jaydeepkadiya}{\underline{linkedin.com/in/jaydeepkadiya}} $|$
+    \href{https://github.com/Jayuuuu04}{\underline{github.com/Jayuuuu04}}
+\end{center}
+
+%-----------SUMMARY-----------
+\section{Summary}
+\small{Backend Developer with 2+ years of professional experience building scalable server-side systems with
+\textbf{PHP}, \textbf{Node.js} and \textbf{MySQL}. Designs clean REST APIs, optimises database performance, and
+integrates payment gateways, shipping providers and corporate card platforms. Shipped enterprise SaaS and
+e-commerce products to production on \textbf{AWS} with CI/CD.}
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Backend Developer}{May 2023 -- Present}
+      {Aeonx Digital Technology Limited}{Bhuj, Gujarat}
+      \resumeItemListStart
+        \resumeItem{Design and develop scalable backend systems using \textbf{PHP} and \textbf{Node.js} for enterprise SaaS products}
+        \resumeItem{Build and maintain \textbf{REST APIs} consumed by web (Next.js) and mobile (Flutter) clients}
+        \resumeItem{Manage \textbf{MySQL} schemas, write optimised queries, and handle migrations and indexing}
+        \resumeItem{Integrate third-party services including payment gateways, email providers, and cloud APIs}
+        \resumeItem{Deploy and manage applications on \textbf{AWS} (EC2, S3, RDS) with CI/CD pipelines via GitHub Actions}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Backend Developer Intern}{Dec 2022 -- Apr 2023}
+      {Infinitie Technology Limited}{Bhuj, Gujarat}
+      \resumeItemListStart
+        \resumeItem{Assisted in building backend modules for client web applications using \textbf{PHP}}
+        \resumeItem{Wrote and optimised SQL queries for data retrieval and reporting features}
+        \resumeItem{Collaborated with senior developers on API design, integration patterns, Git workflows and agile practices}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+%-----------PROJECTS-----------
+\section{Projects}
+    \resumeSubHeadingListStart
+
+      \resumeProjectHeading
+          {\textbf{Xpense -- Enterprise Travel Management SaaS} $|$ \emph{PHP, Next.js, Flutter, MySQL, AWS}}{\href{https://x-pense.cloud/}{\underline{x-pense.cloud}}}
+          \resumeItemListStart
+            \resumeItem{Live SaaS covering corporate travel end-to-end: trips, cash advances, expenses, reports and reimbursements}
+            \resumeItem{Built multi-level approval chains, automated reports, and expense logging with receipt uploads and policy checks}
+            \resumeItem{Integrated \textbf{Omnicard API} for prepaid corporate-card advances with balance and transaction tracking}
+            \resumeItem{Delivered in-app flight and hotel booking for employees}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+          {\textbf{Foodio -- FMCG E-Commerce Platform} $|$ \emph{Node.js, Next.js, MySQL, Razorpay}}{\href{https://foodio-user-panel.vercel.app/}{\underline{foodio-user-panel.vercel.app}}}
+          \resumeItemListStart
+            \resumeItem{Building the full commerce lifecycle, from onboarding and catalogue to fulfilment and delivery tracking}
+            \resumeItem{Implemented role-based authentication (admin, staff, customer) on a modular MVC architecture}
+            \resumeItem{Developed inventory management with stock tracking and low-stock alerts, plus a complete order lifecycle}
+            \resumeItem{Integrated \textbf{Razorpay} for online payments and \textbf{Shiprocket API} for automated shipping and tracking}
+          \resumeItemListEnd
+
+    \resumeSubHeadingListEnd
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {HJD Institute of Technical Education \& Research (GTU)}{Bhuj, Gujarat}
+      {Bachelor of Engineering in Computer Science \& Engineering -- CGPA: 9.18}{2023}
+    \resumeSubheading
+      {Swaminarayan Vidhyalaya}{Bhuj, Gujarat}
+      {HSC (Science) -- 67\% \quad $|$ \quad SSC -- 76\%}{2018 \quad $|$ \quad 2016}
+  \resumeSubHeadingListEnd
+
+%-----------TECHNICAL SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Languages \& Backend}{: PHP, JavaScript (ES6+), Node.js, REST API Design, Authentication flows} \\
+     \textbf{Frontend}{: Next.js, React, HTML5, CSS3, Tailwind CSS} \\
+     \textbf{Database}{: MySQL, Database Design \& Modelling, Query Optimisation, Migrations \& Indexing} \\
+     \textbf{DevOps \& Cloud}{: AWS (EC2, S3, RDS), Docker, Vercel, CI/CD, GitHub Actions} \\
+     \textbf{Integrations \& Tools}{: Razorpay, Shiprocket, Omnicard, EmailJS, Git, GitHub, Postman, VS Code}
+    }}
+ \end{itemize}
+
+%-----------ACHIEVEMENTS-----------
+\section{Achievements \& Certifications}
+ \resumeSubHeadingListStart
+    \resumeProjectHeading
+      {\textbf{1st Rank -- Code Clash Hackathon} $|$ \emph{Trophy and INR 50,000 prize, organised by Aeonx Digital}}{Sep 2024}
+    \resumeProjectHeading
+      {\textbf{Claude Certified Architect -- Foundation} $|$ \emph{Passed the Claude Certified Architect Foundation Exam}}{2026}
+ \resumeSubHeadingListEnd
+
+%-------------------------------------------
+\end{document}
