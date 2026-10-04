@@ -39,6 +39,16 @@ body {
   color: #f8fafc;
 }
 
+/* Native page scrollbar is hidden — ScrollProgress renders the replacement rail. */
+html {
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+}
+
 .scrollbar-thin::-webkit-scrollbar {
   width: 10px;
 }

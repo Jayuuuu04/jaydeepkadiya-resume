@@ -15,6 +15,7 @@ export const projects = [
     tags: ['PHP', 'Next.js', 'Flutter', 'MySQL', 'REST API', 'Omnicard API', 'SaaS', 'AWS'],
     url: 'https://x-pense.cloud/',
     badge: 'Live Product',
+    category: 'SaaS · Travel & Expense',
     accent: 'cyan',
   },
   {
@@ -33,6 +34,7 @@ export const projects = [
     tags: ['Node.js', 'Next.js', 'MySQL', 'Razorpay', 'Shiprocket API', 'REST API', 'E-Commerce'],
     url: '#',
     badge: 'In Progress',
+    category: 'E-Commerce · FMCG',
     accent: 'violet',
   },
 

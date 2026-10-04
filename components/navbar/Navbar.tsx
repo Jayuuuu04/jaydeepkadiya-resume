@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useSpring } from 'framer-motion';
 import { ThemeToggle } from '../theme/ThemeToggle';
 import { Menu, X } from 'lucide-react';
 
@@ -33,6 +33,8 @@ const navItems = [
 export function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { scrollYProgress } = useScroll();
+  const progress = useSpring(scrollYProgress, { stiffness: 140, damping: 30, restDelta: 0.001 });
 
   // Transparent over the hero, solid once the page scrolls underneath it.
   useEffect(() => {
@@ -87,6 +89,15 @@ export function Navbar() {
           </button>
         </div>
       </div>
+
+      {/* page progress, revealed once the header turns solid */}
+      <motion.div
+        aria-hidden
+        style={{ scaleX: progress }}
+        className={`absolute inset-x-0 bottom-0 h-[2px] origin-left bg-gradient-to-r from-cyan-400 via-sky-400 to-violet-500 shadow-[0_0_10px_rgba(34,211,238,0.6)] transition-opacity duration-300 ${
+          scrolled ? 'opacity-100' : 'opacity-0'
+        }`}
+      />
 
       {open && (
         <div className="absolute inset-x-5 top-full mt-2 rounded-3xl border border-slate-800/80 bg-slate-950/95 p-6 shadow-2xl shadow-slate-950/40 backdrop-blur-2xl md:hidden">
