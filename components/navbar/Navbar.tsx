@@ -72,7 +72,7 @@ export function Navbar() {
           <Link href="https://github.com/Jayuuuu04" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="hidden items-center justify-center rounded-full border border-slate-700/70 bg-slate-900/70 p-2.5 text-slate-300 transition hover:border-cyan-300/70 hover:text-cyan-200 md:inline-flex">
             <GitHubSvg />
           </Link>
-          <Link href="https://www.linkedin.com/in/jaydeepkadiya005" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hidden items-center justify-center rounded-full border border-slate-700/70 bg-slate-900/70 p-2.5 text-slate-300 transition hover:border-cyan-300/70 hover:text-cyan-200 md:inline-flex">
+          <Link href="https://www.linkedin.com/in/jaydeep-kadiya-7178b0163" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hidden items-center justify-center rounded-full border border-slate-700/70 bg-slate-900/70 p-2.5 text-slate-300 transition hover:border-cyan-300/70 hover:text-cyan-200 md:inline-flex">
             <LinkedInSvg />
           </Link>
           <ThemeToggle />

@@ -169,7 +169,7 @@ export function Hero() {
                 className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-700/70 bg-slate-900/70 text-slate-400 transition hover:border-cyan-400/50 hover:text-cyan-300">
                 <GitHubSvg />
               </Link>
-              <Link href="https://www.linkedin.com/in/jaydeepkadiya005" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
+              <Link href="https://www.linkedin.com/in/jaydeep-kadiya-7178b0163" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
                 className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-700/70 bg-slate-900/70 text-slate-400 transition hover:border-cyan-400/50 hover:text-cyan-300">
                 <LinkedInSvg />
               </Link>
