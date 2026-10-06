@@ -5,7 +5,7 @@ import '../styles/globals.css';
 export const metadata: Metadata = {
   title: 'Jaydeep Kadiya | Backend Developer',
   description: 'Backend developer specialising in PHP, Node.js, SQL databases, REST APIs, and AWS cloud deployment.',
-  metadataBase: new URL('https://jaydeepkadiya.vercel.app'),
+  metadataBase: new URL('https://jaydeepkadiya-resume.vercel.app'),
   openGraph: {
     title: 'Jaydeep Kadiya | Backend Developer',
     description: 'Backend developer specialising in PHP, Node.js, SQL databases, REST APIs, and AWS cloud deployment.',

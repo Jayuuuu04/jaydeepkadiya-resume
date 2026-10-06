@@ -1,9 +1,11 @@
 "use client";
 
-import { useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { useForm } from 'react-hook-form';
 import emailjs from '@emailjs/browser';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
+import { AlertCircle, CheckCircle2, X } from 'lucide-react';
 import { whatsappUrl } from '../../data/contact';
 import { WhatsAppIcon } from '../ui/WhatsAppIcon';
 
@@ -25,6 +27,7 @@ export function Contact() {
     reset,
     formState: { errors },
   } = useForm<ContactFormValues>({ mode: 'onTouched' });
+  const closeToast = useCallback(() => setStatus('idle'), []);
 
   const onSubmit = async (data: ContactFormValues) => {
     if (!SERVICE_ID || !TEMPLATE_ID || !PUBLIC_KEY) {
@@ -127,9 +130,78 @@ export function Contact() {
           </div>
         </form>
 
-        {status === 'success' && <p className="mt-5 rounded-3xl bg-emerald-500/10 px-5 py-4 text-sm text-emerald-200">Message sent successfully. I’ll get back to you soon.</p>}
-        {status === 'error' && <p className="mt-5 rounded-3xl bg-rose-500/10 px-5 py-4 text-sm text-rose-200">There was an issue sending your message. Please try again later.</p>}
       </motion.div>
+
+      <AnimatePresence>
+        {(status === 'success' || status === 'error') && (
+          <Toast key={status} variant={status} onClose={closeToast} />
+        )}
+      </AnimatePresence>
     </section>
+  );
+}
+
+const TOAST_DURATION_MS = 5000;
+
+const toastContent = {
+  success: {
+    title: 'Message sent!',
+    description: 'Thanks for reaching out — I’ll get back to you soon.',
+    Icon: CheckCircle2,
+    accent: 'text-emerald-400',
+    ring: 'border-emerald-400/30',
+    bar: 'bg-emerald-400',
+  },
+  error: {
+    title: 'Couldn’t send your message',
+    description: 'Something went wrong. Please try again or reach me on WhatsApp.',
+    Icon: AlertCircle,
+    accent: 'text-rose-400',
+    ring: 'border-rose-400/30',
+    bar: 'bg-rose-400',
+  },
+} as const;
+
+function Toast({ variant, onClose }: { variant: 'success' | 'error'; onClose: () => void }) {
+  const { title, description, Icon, accent, ring, bar } = toastContent[variant];
+
+  useEffect(() => {
+    const timer = setTimeout(onClose, TOAST_DURATION_MS);
+    return () => clearTimeout(timer);
+  }, [onClose]);
+
+  return createPortal(
+    <motion.div
+      role={variant === 'error' ? 'alert' : 'status'}
+      aria-live="polite"
+      initial={{ opacity: 0, y: 24, scale: 0.96 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      exit={{ opacity: 0, y: 16, scale: 0.96 }}
+      transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+      className={`fixed bottom-6 left-4 right-4 z-50 overflow-hidden rounded-2xl border ${ring} bg-slate-900/95 shadow-2xl shadow-black/40 backdrop-blur-md sm:left-auto sm:right-6 sm:w-[380px]`}
+    >
+      <div className="flex items-start gap-3 p-4">
+        <Icon className={`mt-0.5 h-5 w-5 shrink-0 ${accent}`} />
+        <div className="flex-1">
+          <p className="text-sm font-semibold text-slate-100">{title}</p>
+          <p className="mt-1 text-sm leading-6 text-slate-400">{description}</p>
+        </div>
+        <button
+          type="button"
+          onClick={onClose}
+          aria-label="Dismiss notification"
+          className="rounded-full p-1 text-slate-500 transition hover:bg-slate-800 hover:text-slate-200"
+        >
+          <X className="h-4 w-4" />
+        </button>
+      </div>
+      <motion.div
+        className={`h-1 origin-left ${bar}`}
+        initial={{ scaleX: 1 }}
+        animate={{ scaleX: 0 }}
+        transition={{ duration: TOAST_DURATION_MS / 1000, ease: 'linear' }}
+      />
+    </motion.div>,
+    document.body
   );
 }
